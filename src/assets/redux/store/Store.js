@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import  sellSlice  from "../state/Counter/CounterSlice";
+
+import todoReducer from "../state/todo/TodoSlice"
 // ✅ Ensure correct path
 
 const store = configureStore({
   reducer: {
-    sell: sellSlice, // ✅ Matches default export
+    // sell: sellSlice,
+    todo: todoReducer,
   },
 });
 
