@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useRef } from "react";
+import { AddTodo } from "../../redux/state/todo/TodoSlice";
+import { useDispatch } from "react-redux";
 
 const CreateTodo = () => {
+  const dispatch = useDispatch();
+  const inputRef = useRef();
   return (
     <div className="container-fluid">
       <div className="row m-5">
@@ -10,13 +14,18 @@ const CreateTodo = () => {
             placeholder="Add your Task"
             className="form-control"
             id=""
+            ref={inputRef}
           />
         </div>
         <div className="col-md-2">
-          <button className="btn btn-primary">Add task</button>
+          <button
+            className="btn btn-primary"
+            onClick={() => dispatch(AddTodo(inputRef.current.value))}
+          >
+            Add task
+          </button>
         </div>
-          </div>
-          
+      </div>
     </div>
   );
 };
